@@ -1,12 +1,12 @@
 # cs310-fall2024-cp4-group-assignment
 
-Full Names:
+Full Names: Andrew Zou, Elliot Zou, Calvin Choi
 
-GitHub IDs:
+GitHub IDs: AZou423
 
-Binghamton CS userids:
+Binghamton CS userids: azou2
 
-Discord names:
+Discord names: mxmba_
 
 Please type or copy the CS 310 honesty statement here:
 
