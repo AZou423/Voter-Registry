@@ -11,6 +11,9 @@ class Voter {
       string first = "";
       string last = "";
       unsigned int age = 0;
+      Node* heapPtr = NULL;
+      Node* bstPtr = NULL;
+      int vectorIndex = 0;
    public:
       Voter(string firstname, string lastname, unsigned int voterage);
       Voter();
@@ -19,7 +22,13 @@ class Voter {
       friend ostream& operator<<(ostream& os, const Voter& voter);
       bool operator>(const Voter& v2) const;
       bool operator<(const Voter& v2) const;
-      bool operator==(const Voter& v2) const; 
+      bool operator==(const Voter& v2) const;
+      Node* getHeapPtr();
+      Node* getBstPtr();
+      int getVectorIndex();
+      void setHeapPtr();
+      void setBstPtr();
+      void setVectorIndex();
 };
 
 #endif

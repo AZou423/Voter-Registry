@@ -4,12 +4,18 @@ Voter::Voter(string firstname, string lastname, unsigned int voterage) {
 	first = firstname;
 	last = lastname;
 	age = voterage;
+  heapPtr = NULL;
+  bstPtr = NULL;
+  vectorIndex = 0;
 }
 
 Voter::Voter() {
 	first = "";
 	last = "";
 	age = 0;
+  heapPtr = NULL;
+  bstPtr = NULL;
+  vectorIndex = 0;
 }
 
 void Voter::show() {
@@ -65,4 +71,28 @@ bool Voter::operator<(const Voter& v2) const {
     return false;
   }
   return true;
+}
+
+Node* Voter::getHeapPtr() {
+  return heapPtr;
+}
+
+Node* Voter::getBstPtr() {
+  return bstPtr;
+}
+
+int Voter::getVectorIndex() {
+  return vectorIndex;
+}
+
+void Voter::setHeapPtr(Node* newHeapPtr) {
+  heapPtr = newHeapPtr;
+}
+
+void Voter::setBstPtr(Node* newBstPtr) {
+  bstPtr = newBstPtr;
+}
+
+void Voter::setVectorIndex(int newVectorIndex) {
+  vectorIndex = newVectorIndex;
 }
