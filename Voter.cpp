@@ -7,6 +7,10 @@ Voter::Voter(string firstname, string lastname, unsigned int voterage) {
   heapPtr = NULL;
   bstPtr = NULL;
   vectorIndex = 0;
+  strength = 0.0;
+  likelihood = 0.0;
+  impact = 0.0;
+  hasVoted = false;
 }
 
 Voter::Voter() {
@@ -16,6 +20,10 @@ Voter::Voter() {
   heapPtr = NULL;
   bstPtr = NULL;
   vectorIndex = 0;
+  strength = 0.0;
+  likelihood = 0.0;
+  impact = 0.0;
+  hasVoted = false;
 }
 
 void Voter::show() {
