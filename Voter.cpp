@@ -85,6 +85,22 @@ int Voter::getVectorIndex() {
   return vectorIndex;
 }
 
+float Voter::getStrength() {
+  return strength;
+}
+
+float Voter::getLikelihood() {
+  return likelihood;
+}
+
+float Voter::getImpact() {
+  return impact;
+}
+
+bool Voter::getHasVoted() {
+  return hasVoted;
+}
+
 void Voter::setHeapPtr(Node* newHeapPtr) {
   heapPtr = newHeapPtr;
 }
@@ -95,4 +111,20 @@ void Voter::setBstPtr(Node* newBstPtr) {
 
 void Voter::setVectorIndex(int newVectorIndex) {
   vectorIndex = newVectorIndex;
+}
+
+void Voter::setStrength(float newStrength) {
+  strength = newStrength;
+}
+
+void Voter::setLikelihood(float newLikelihood) {
+  likelihood = newLikelihood;
+}
+
+void Voter::calculateImpact() {
+  impact = strength / likelihood;
+}
+
+void Voter::setHasVoted() {
+  hasVoted = true;
 }
