@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
+#include "Node.h"
 using namespace std;
 
 class Voter {
@@ -14,6 +15,10 @@ class Voter {
       Node* heapPtr = NULL;
       Node* bstPtr = NULL;
       int vectorIndex = 0;
+      float strength;
+      float likelihood;
+      float impact;
+      bool hasVoted;
    public:
       Voter(string firstname, string lastname, unsigned int voterage);
       Voter();
@@ -26,9 +31,17 @@ class Voter {
       Node* getHeapPtr();
       Node* getBstPtr();
       int getVectorIndex();
-      void setHeapPtr();
-      void setBstPtr();
-      void setVectorIndex();
+      float getStrength();
+      float getLikelihood();
+      float getImpact();
+      bool getHasVoted();
+      void setHeapPtr(Node* newHeapPtr);
+      void setBstPtr(Node* newBstPtr);
+      void setVectorIndex(int newVectorIndex);
+      void setStrength(float newStrength);
+      void setLikelihood(float newLikelihood);
+      void calculateImpact();
+      void setHasVoted();
 };
 
 #endif
