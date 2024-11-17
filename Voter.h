@@ -31,6 +31,7 @@ class Voter {
       Node* getHeapPtr();
       Node* getBstPtr();
       int getVectorIndex();
+      string getName(); //added this so we can access full name (needs to be first and last) of Voter node for BST insert and find
       float getStrength();
       float getLikelihood();
       float getImpact();

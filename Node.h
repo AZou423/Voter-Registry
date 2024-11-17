@@ -8,11 +8,13 @@ using namespace std;
 
 class Node{
     private:
-        Node* parent;
         Node* left;
         Node* right;
         Voter data;
-        
-}
+
+    public:
+        Node(const Voter& v);
+        ~Node();
+};
 
 #endif _Node_
