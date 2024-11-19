@@ -18,8 +18,8 @@ class Node{
         void setLeft(Node* left);
         void setRight(Node* right);
         void setData(const Voter& v);
-        Node* getLeft();
-        Node* getRight();
+        Node getLeft();
+        Node getRight();
         Voter getData();
 };
 
