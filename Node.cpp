@@ -5,7 +5,7 @@
 using namespace std;
 
 Node::Node(const Voter& v){
-    data = v;
+    voter = v;
     left = nullptr;
     right = nullptr;
 }
