@@ -10,7 +10,7 @@ class Node{
     private:
         Node* left;
         Node* right;
-        Voter data;
+        Voter voter;
 
     public:
         Node(const Voter& v);

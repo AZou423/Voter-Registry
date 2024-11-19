@@ -7,9 +7,9 @@ Voter::Voter(string firstname, string lastname, unsigned int voterage) {
   heapPtr = NULL;
   bstPtr = NULL;
   vectorIndex = 0;
-  strength = 0.0;
-  likelihood = 0.0;
-  impact = 0.0;
+  support = 75;
+  likelihood = .75;
+  impact = 100;
   hasVoted = false;
 }
 
@@ -20,7 +20,7 @@ Voter::Voter() {
   heapPtr = NULL;
   bstPtr = NULL;
   vectorIndex = 0;
-  strength = 0.0;
+  support = 0.0;
   likelihood = 0.0;
   impact = 0.0;
   hasVoted = false;
@@ -93,8 +93,8 @@ int Voter::getVectorIndex() {
   return vectorIndex;
 }
 
-float Voter::getStrength() {
-  return strength;
+float Voter::getSupport() {
+  return support;
 }
 
 float Voter::getLikelihood() {
@@ -121,8 +121,8 @@ void Voter::setVectorIndex(int newVectorIndex) {
   vectorIndex = newVectorIndex;
 }
 
-void Voter::setStrength(float newStrength) {
-  strength = newStrength;
+void Voter::setSupport(float newSupport) {
+  support = newSupport;
 }
 
 void Voter::setLikelihood(float newLikelihood) {
@@ -130,7 +130,7 @@ void Voter::setLikelihood(float newLikelihood) {
 }
 
 void Voter::calculateImpact() {
-  impact = strength / likelihood;
+  impact = support / likelihood;
 }
 
 void Voter::setHasVoted() {

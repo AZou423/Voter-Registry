@@ -15,7 +15,7 @@ class Voter {
       Node* heapPtr = NULL;
       Node* bstPtr = NULL;
       int vectorIndex = 0;
-      float strength;
+      float support;
       float likelihood;
       float impact;
       bool hasVoted;
@@ -32,14 +32,14 @@ class Voter {
       Node* getBstPtr();
       int getVectorIndex();
       string getName(); //added this so we can access full name (needs to be first and last) of Voter node for BST insert and find
-      float getStrength();
+      float getSupport();
       float getLikelihood();
       float getImpact();
       bool getHasVoted();
       void setHeapPtr(Node* newHeapPtr);
       void setBstPtr(Node* newBstPtr);
       void setVectorIndex(int newVectorIndex);
-      void setStrength(float newStrength);
+      void setSupport(float newSupport);
       void setLikelihood(float newLikelihood);
       void calculateImpact();
       void setHasVoted();
