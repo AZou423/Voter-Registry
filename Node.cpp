@@ -15,26 +15,26 @@ Node::~Node(){
     delete right;
 }
 
-void Node::setLeft(Node* left) {
-    this.left = left;
+void Node::setLeft(Node* node) {
+    left = node;
 }
 
-void Node::setRight(Node* right) {
-    this.right = right;
+void Node::setRight(Node* node) {
+    right = node;
 }
 
 void Node::setData(const Voter& v) {
-    this.data = v;
+    voter = v;
 }
 
-Node* Node::getLeft() {
-    return left;
+Node Node::getLeft() {
+    return *left;
 }
 
-Node* Node::getRight() {
-    return right;
+Node Node::getRight() {
+    return *right;
 }
 
 Voter Node::getData() {
-  return data;
+  return voter;
 }
