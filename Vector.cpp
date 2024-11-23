@@ -23,7 +23,7 @@ void Vector::showImpact() {
     int index = 0;
     for (std::list<Voter>& element : listOfLists) {
         for (Voter person : element) {
-            cout << element.getName() << "(" << index << "): strength of support: " << element.getSupport() <<", likelihood: "
+            // cout << element.getName() << "(" << index << "): strength of support: " << element.getSupport() <<", likelihood: "
         }
         index++;
     }
