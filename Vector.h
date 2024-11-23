@@ -21,6 +21,7 @@ class Vector{
         // ~Vector();
 
         //Functions
+        void insertVoter(Voter* newVoter);
         void showImpact();
 };
 

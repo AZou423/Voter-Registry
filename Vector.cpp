@@ -14,16 +14,18 @@ Vector::Vector() {
 // ~Vector();
 
 //Functions
+void Vector::insertVoter(Voter* newVoter) {
+    int age = newVoter->getAge();
+    listOfLists[age - 18].push_back(*newVoter);
+}
+
 void Vector::showImpact() {
-    // for (int i = 0; i < 100; i++) {
-    //     for (int j = 0; j < listOfLists.at(i).size(); j++) {
-    //         cout << 
-    //     }
-    // }
     int index = 0;
     for (std::list<Voter>& element : listOfLists) {
         for (Voter person : element) {
-            // cout << element.getName() << "(" << index << "): strength of support: " << element.getSupport() <<", likelihood: "
+            cout << person.getName() << "(" << person.getAge() << "): strength of support: " 
+                 << person.getSupport() <<", likelihood: " << person.getLikelihood()
+                 << ", impact: " << person.getImpact() << endl;
         }
         index++;
     }
