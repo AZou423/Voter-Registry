@@ -93,6 +93,10 @@ int Voter::getVectorIndex() {
   return vectorIndex;
 }
 
+int Voter::getAge() {
+  return age;
+}
+
 float Voter::getSupport() {
   return support;
 }
