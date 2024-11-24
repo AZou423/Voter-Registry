@@ -28,11 +28,29 @@ int main() {
     while (cin >> input) {
         getline(cin, input);
         vector<string> words = splitBySpace(input);
-
+        
+        if (words.at(0) == "quit") {
+            break;
+        }
         if (words.at(0) == "voter") {
             Voter* newVoter = new Voter(words.at(2), words.at(1), stoi(words.at(3)));
             //check if voter already exists
-
+            vec->insertVoter(newVoter);
+            //insert into BST
+            //insert into Heap
+            //set pointer and indices for the data structures
+        }
+        if (words.at(0) == "support") {
+            //support stuff
+        }
+        if (words.at(0) == "show-impact") {
+            vec->showImpact();
+        }
+        if (words.at(0) == "reduce-likelihood") {
+            //reduce-likelihood stuff
+        }
+        if (words.at(0) == "chauffeur") {
+            //chauffeur stuff
         }
     }
 
