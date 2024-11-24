@@ -11,9 +11,12 @@ class BST {
   private:
     Node* root;
   public:
+    BST();
+    BST(Node* newRoot);
+    ~BST();
     void insert(Node* newNode);
-    Node* search(Voter voter);
-    void remove(Node* node);
+    Node* search(string firstName, string lastName);
+    void remove(Voter voter);
     void traverseInOrder(Node* n);
 };
 

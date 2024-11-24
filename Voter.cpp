@@ -113,6 +113,22 @@ bool Voter::getHasVoted() {
   return hasVoted;
 }
 
+string Voter::getFirstName() {
+  return first;
+}
+
+string Voter::getLastName() {
+  return last;
+}
+
+string Voter::getFirstName() {
+  return first;
+}
+
+string Voter::getLastName() {
+  return last;
+}
+
 void Voter::setHeapIndex(int newHeapIndex) {
   heapIndex = newHeapIndex;
 }

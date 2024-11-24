@@ -32,6 +32,8 @@ class Voter {
       Node* getBstPtr();
       int getVectorIndex();
       string getName(); //added this so we can access full name (needs to be first and last) of Voter node for BST insert and find
+      string getFirstName();
+      string getLastName();
       int getAge(); //added to use in vector implementation
       float getSupport();
       float getLikelihood();
