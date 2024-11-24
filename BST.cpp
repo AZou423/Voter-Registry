@@ -12,27 +12,32 @@ void BST::insert(Node* newNode) {
     root = newNode;
     return;
   }
-  Node current = root
+  Node* current = root;
+  string insertFullName = newNode->getData().getFirst() + newNode->getData().getLast();
   while (current != NULL) {
-    if (current.getData() < newNode.getData()) { //compare names
-      if (current.getRight() == NULL) {
-        current.setRight(newNode);
+    string currentFullName = current->getData().getFirst() + current->getData().getLast();
+    if (currentFullName < insertFullName) { //compare names
+      if (current->getRight() == NULL) {
+        current->setRight(newNode);
+        return;
       }
       else {
-        current = current.getRight();
+        current = current->getRight();
       }
     }
     else {
-      if (current.getLeft() == NULL) {
-        current.setLeft(newNode);
+      if (current->getLeft() == NULL) {
+        current->setLeft(newNode);
+        return;
       }
       else {
-        current = current.getLeft();
+        current = current->getLeft();
       }
     }
   }
 }
 
+/*
 Node* BST::search(Voter voter) {
   Node current = root;
   while (current != NULL) {
@@ -47,7 +52,26 @@ Node* BST::search(Voter voter) {
     }
   }
   return NULL;
+}*/
+
+Node* BST::search(string firstName, string lastName) {
+  string targetFullName = firstName + lastName;
+  Node* current = root;
+  while (current != NULL) {
+    string currentFullName = current->getData().getFirst() + current->getData().getLast();
+    if (targetFullName == currentFullName) {
+      return current;
+    }
+    if (currentFullName < targetFullName) {
+      current = current->getRight();
+    }
+    else {
+      current = current->getLeft();
+    }
+  }
+  return NULL;
 }
+
 
 void BST::remove(Voter voter) {
   Node targetParent = NULL;
