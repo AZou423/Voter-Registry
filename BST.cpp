@@ -5,7 +5,17 @@
 #include "Voter.h"
 using namespace std;
 
+BST::BST() {
+  root = NULL;
+}
 
+BST::BST(Node* newRoot) {
+  root = newRoot;
+}
+
+BST::~BST() {
+  delete root;
+}
 
 void BST::insert(Node* newNode) {
   if (root == NULL) {

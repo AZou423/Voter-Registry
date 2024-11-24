@@ -11,6 +11,9 @@ class BST {
   private:
     Node* root;
   public:
+    BST();
+    BST(Node* newRoot);
+    ~BST();
     void insert(Node* newNode);
     Node* search(string firstName, string lastName);
     void remove(Voter voter);
