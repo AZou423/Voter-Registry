@@ -7,17 +7,14 @@
 class Heap{
     private:
         void swap(int a, int b); //helper function for build heap
-        void percolateDown(int nodeIndex, vector<Voter> vec, int vecSize); //helper function for remove
-        void percolateUp(int nodeIndex, vector<Voter> vec); //Helper function for insert
-        void heapify(); //called on heap object to turn vector into heap
-        vector<Voter> voterVector;
-        int size;
-        int capacity;
-        bool empty;
+        void percolateDown(int nodeIndex, vector<Voter*> vec); //helper function for remove
+        void percolateUp(int nodeIndex, vector<Voter*> vec); //Helper function for insert
+        void heapify(vector<Voter*> vec); //called on vector to turn vector into heap
+        vector<Voter*> voterVector;
     public:
-        Heap(vector<Voter> vec);
-        Node* extractMax(); //returns voter with greatest impact and reheapify
-        void insert(Voter v); //should check if 
+        Heap(const vector<Voter*>& vec);
+        Voter* extractMax(); //returns voter with greatest impact and reheapify
+        void insert(Voter* v); //has to handle resizing vector
 };
 
 #endif HEAP_H
