@@ -40,6 +40,10 @@ int main() {
             //insert into Heap
             //set pointer and indices for the data structures
         }
+        if (words.at(0) == "voted") {
+            //traverse through BST to find the name and then remove it from BST and Heap
+            //set hasVoted to true
+        }
         if (words.at(0) == "support") {
             //support stuff
         }
@@ -50,7 +54,8 @@ int main() {
             //reduce-likelihood stuff
         }
         if (words.at(0) == "chauffeur") {
-            //chauffeur stuff
+            //get voter at root, and remove it from BST and Heap, and set hasVoted to true
+            //set hasVoted to true
         }
     }
 
