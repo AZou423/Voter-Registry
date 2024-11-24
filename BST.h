@@ -12,8 +12,8 @@ class BST {
     Node* root;
   public:
     void insert(Node* newNode);
-    Node* search(Voter voter);
-    void remove(Node* node);
+    Node* search(string firstName, string lastName);
+    void remove(Voter voter);
     void traverseInOrder(Node* n);
 };
 
