@@ -113,6 +113,14 @@ bool Voter::getHasVoted() {
   return hasVoted;
 }
 
+string Voter::getFirstName() {
+  return first;
+}
+
+string Voter::getLastName() {
+  return last;
+}
+
 void Voter::setHeapPtr(Node* newHeapPtr) {
   heapPtr = newHeapPtr;
 }
