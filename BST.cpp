@@ -50,40 +50,6 @@ Node* BST::search(Voter voter) {
 }
 
 void BST::remove(Voter voter) {
-  //get parent of target and target, 
-  Node targetParent = root;
-  if (targetParent != NULL && targetParent.getData() == voter) {
-    //case where root is the target
-  }
-  while (targetParent != NULL) { //find the parent of the target
-    if (targetParent.getRight() != NULL && targetParent.getRight().getData() == voter) {
-      break;
-    }
-    if (targetParent.getLeft() != NULL && targetParent.getLeft().getData() == voter) {
-      break;
-    }
-  } 
-  if (targetParent != NULL) {
-    Node target = NULL;
-    if (targetParent.getRight() != NULL && targetParent.getRight().getData() == voter) {
-      target = targetParent.getRight();
-    }
-    else if (targetParent.getLeft() != NULL && targetParent.getLeft().getData() == voter) {
-      target = targetParent.getLeft();
-    }
-    //get the leftmost of the right subtree of target
-    Node leftmostParent = target.getRight();
-    while (leftmostParent != NULL && leftmostParent.getLeft() != NULL && leftmostParent.getLeft().getLeft() != NULL) {
-      leftmostParent = leftmostParent.getLeft();
-    }
-    if (leftmostParent == NULL) {
-
-    }
-  }
-  return;
-}
-
-void BST::remove(Voter voter) {
   Node targetParent = NULL;
   Node target = root;
   while (target != NULL && target.getData() != voter) {
@@ -151,3 +117,11 @@ void BST::remove(Voter voter) {
   }
 }
 
+void BST::traverseInOrder(Node* n) {
+  if (n == NULL) {
+    return;
+  }
+  traverseInOrder(n->getLeft());
+  //visit by printing
+  traverseInOrder(n->getRight());
+}
