@@ -6,7 +6,7 @@ Voter::Voter(string firstname, string lastname, unsigned int voterage) {
 	age = voterage;
   heapPtr = NULL;
   bstPtr = NULL;
-  vectorIndex = 0;
+  vectorIndex = age - 18;
   support = 75;
   likelihood = .75;
   impact = 100;
@@ -19,7 +19,7 @@ Voter::Voter() {
 	age = 0;
   heapPtr = NULL;
   bstPtr = NULL;
-  vectorIndex = 0;
+  vectorIndex = age - 18;
   support = 0.0;
   likelihood = 0.0;
   impact = 0.0;

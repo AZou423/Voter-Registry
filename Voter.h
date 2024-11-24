@@ -9,12 +9,12 @@ using namespace std;
 
 class Voter {
    private:
-      string first = "";
-      string last = "";
-      unsigned int age = 0;
-      Node* heapPtr = NULL;
-      Node* bstPtr = NULL;
-      int vectorIndex = 0;
+      string first;
+      string last;
+      unsigned int age;
+      Node* heapPtr;
+      Node* bstPtr;
+      int vectorIndex;
       float support;
       float likelihood;
       float impact;
