@@ -23,7 +23,7 @@ vector<string> splitBySpace(string& str) {
 int main() {
     string input;
     Vector* vec = new Vector();
-    BST bst = new BST();
+    BST bst;
     //Heap constructor
     while (cin >> input) {
         getline(cin, input);
