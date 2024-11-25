@@ -23,7 +23,7 @@ vector<string> splitBySpace(string& str) {
 int main() {
     string input;
     Vector* vec = new Vector();
-    //BST constructor
+    BST bst = new BST();
     //Heap constructor
     while (cin >> input) {
         getline(cin, input);
@@ -35,8 +35,15 @@ int main() {
         if (words.at(0) == "voter") {
             Voter* newVoter = new Voter(words.at(2), words.at(1), stoi(words.at(3)));
             //check if voter already exists
+            Node* searchResult = bst.search(words.at(1), words.at(2));
+            if (searchResult != NULL) {
+              //voter already exists
+            }
             vec->insertVoter(newVoter);
             //insert into BST
+            Node* newNode = new Node(&newVoter);
+            newVoter->setBstPtr(newNode);
+            bst.insert(newNode)
             //insert into Heap
             //set pointer and indices for the data structures
         }

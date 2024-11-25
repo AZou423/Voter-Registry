@@ -6,21 +6,23 @@
 #include <string>
 using namespace std;
 
+class Voter;
+
 class Node{
     private:
         Node* left;
         Node* right;
-        Voter voter;
+        Voter* voter;
 
     public:
-        Node(const Voter& v);
+        Node(Voter* voterPtr);
         ~Node();
         void setLeft(Node* left);
         void setRight(Node* right);
-        void setData(const Voter& v);
-        Node getLeft();
-        Node getRight();
-        Voter getData();
+        void setData(Voter* voterPtr);
+        Node* getLeft();
+        Node* getRight();
+        Voter* getData();
 };
 
-#endif _Node_
+#endif //_Node_

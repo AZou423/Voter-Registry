@@ -20,4 +20,4 @@ class BST {
     void traverseInOrder(Node* n);
 };
 
-#endif _H_BST_
+#endif
