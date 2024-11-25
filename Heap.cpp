@@ -30,7 +30,7 @@ void Heap::percolateDown(int nodeIndex, vector<Voter*> vec){
 }
 
 void Heap::percolateUp(int nodeIndex, vector<Voter*> vec){
-    int parent = (nodeIndex - 1) * 2;
+    int parent = (nodeIndex - 1) / 2;
     int largest = parent;
 
     if(parent >= 0 && vec.at(parent)->getImpact() < vec.at(nodeIndex)->getImpact()){
