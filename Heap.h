@@ -10,6 +10,7 @@ class Heap{
         vector<Voter*> voterVector;
     public:
         Heap(const vector<Voter*>& vec);
+        vector<Voter*> getVec();
         Voter* extractMax(); //returns voter with greatest impact and reheapify
         void insert(Voter* v); //has to handle resizing vector
         void percolateDown(int nodeIndex, vector<Voter*> vec); //helper function for remove

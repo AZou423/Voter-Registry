@@ -6,6 +6,10 @@ Heap::Heap(const vector<Voter*>& vec){
     heapify(voterVector);
 }
 
+vector<Voter*> Heap::getVec() {
+    return voterVector;
+}
+
 void Heap::percolateDown(int nodeIndex, vector<Voter*> vec){
     int leftChildIndex = (nodeIndex * 2) + 1;
     int rightChildIndex = (nodeIndex * 2) + 2;
