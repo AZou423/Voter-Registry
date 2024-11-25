@@ -27,14 +27,14 @@ void Node::setData(const Voter& v) {
     voter = v;
 }
 
-Node Node::getLeft() {
-    return *left;
+Node* Node::getLeft() {
+    return left;
 }
 
-Node Node::getRight() {
-    return *right;
+Node* Node::getRight() {
+    return right;
 }
 
-Voter Node::getData() {
+Voter* Node::getData() {
   return voter;
 }
