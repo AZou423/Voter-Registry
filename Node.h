@@ -6,6 +6,8 @@
 #include <string>
 using namespace std;
 
+class Voter;
+
 class Node{
     private:
         Node* left;
@@ -17,10 +19,10 @@ class Node{
         ~Node();
         void setLeft(Node* left);
         void setRight(Node* right);
-        void setData(const Voter& v);
+        void setData(Voter* voterPtr);
         Node* getLeft();
         Node* getRight();
         Voter* getData();
 };
 
-#endif _Node_
+#endif //_Node_

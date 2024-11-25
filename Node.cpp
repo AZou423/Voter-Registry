@@ -23,8 +23,8 @@ void Node::setRight(Node* node) {
     right = node;
 }
 
-void Node::setData(const Voter& v) {
-    voter = v;
+void Node::setData(Voter* voterPtr) {
+    voter = voterPtr;
 }
 
 Node* Node::getLeft() {

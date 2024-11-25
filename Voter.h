@@ -7,6 +7,8 @@
 #include "Node.h"
 using namespace std;
 
+class Node;
+
 class Voter {
    private:
       string first;
