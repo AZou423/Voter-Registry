@@ -90,9 +90,17 @@ int main() {
             }
             Voter* voter = searchResult->getData();
             if (voter->getHasVoted() == true) {
-              //voter already voted
+              cout << voter->getFirstName() << " " << voter->getLastName() << " already voted" << endl;
             }
-            //use this voter from the bst search result to get the heap index and change support
+            cout << voter->getSupport() << endl; //before changing support
+            cout << hep.getVec().at(0) << endl; // heap before changing
+            voter->setSupport(stof(words.at(3)) + voter->getSupport());
+            cout << voter->getSupport() << endl; //after changing support
+            voter->calculateImpact();
+            hep.percolateUp(voter->getHeapIndex(), hep.getVec());
+            cout << hep.getVec().at(0) << endl; // heap after changing
+            cout << "Support from " << voter->getFirstName() << " " << voter->getLastName() 
+                << " increased by " << stof(words.at(3)) << " points" << endl;
         }
         if (words.at(0) == "show-impact") {
             vec->showImpact();
@@ -106,7 +114,7 @@ int main() {
             }
             Voter* voter = searchResult->getData();
             if (voter->getHasVoted() == true) {
-              //voter already voted
+              cout << voter->getFirstName() << " " << voter->getLastName() << " already voted" << endl;
             }
             //use this voter from the bst to get the heap index and reduce likelihood
         }
