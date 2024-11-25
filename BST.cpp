@@ -153,11 +153,32 @@ void BST::remove(Voter voter) {
   }
 }
 
+Node* BST::getRoot() {
+  return root;
+}
+
 void BST::traverseInOrder(Node* n) {
   if (n == NULL) {
     return;
   }
   traverseInOrder(n->getLeft());
   //visit by printing
+  cout << n << endl;
+  cout << n->getData()->getFirstName() << " " << n->getData()->getLastName() << " " << n->getData()->getAge() << endl;
+  cout << "left: " << n->getLeft() << " right: " << n->getRight() << endl;
+  cout << endl;
   traverseInOrder(n->getRight());
+}
+
+void BST::traversePreOrder(Node* n) {
+  if (n == NULL) {
+    return;
+  } 
+  //visit by printing
+  cout << n << endl;
+  cout << n->getData()->getFirstName() << " " << n->getData()->getLastName() << " " << n->getData()->getAge() << endl;
+  cout << "left: " << n->getLeft() << " right: " << n->getRight() << endl;
+  cout << endl;
+  traversePreOrder(n->getLeft());
+  traversePreOrder(n->getRight());
 }
