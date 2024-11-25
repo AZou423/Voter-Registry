@@ -71,6 +71,10 @@ int main() {
               continue;
             }
             Voter* voter = searchResult->getData();
+            if (voter->getHasVoted() == true) {
+              cout << "Voter " << voter->getFirstName() << " " << voter->getLastName() << " already voted" << endl;
+              continue;
+            }
             //set hasVoted to true
             voter->setHasVoted();
             //remove from heap using voter's heap index
