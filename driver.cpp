@@ -38,6 +38,11 @@ int main() {
             Node* searchResult = bst.search(words.at(1), words.at(2));
             if (searchResult != NULL) {
               //voter already exists
+              string firstname = searchResult->getData()->getFirstName();
+              string lastname = searchResult->getData()->getLastName();
+              int age = searchResult->getData()->getAge();
+              cout << "Voter " << firstname << " " << lastname << ", age " << age << ", already exists." << endl;
+              continue;
             }
             vec->insertVoter(newVoter);
             //insert into BST
@@ -49,19 +54,47 @@ int main() {
         }
         if (words.at(0) == "voted") {
             //traverse through BST to find the name and then remove it from BST and Heap
+            Node* searchResult = bst.search(words.at(1), words.at(2));
+            if (searchResult == NULL) {
+              //voter not found
+              continue;
+            }
+            Voter* voter = searchResult->getData();
             //set hasVoted to true
+            voter->setHasVoted();
+            //remove from heap using voter's heap index
         }
         if (words.at(0) == "support") {
             //support stuff
+            Node* searchResult = bst.search(words.at(1), words.at(2));
+            if (searchResult == NULL) {
+              //voter not found
+              continue;
+            }
+            Voter* voter = searchResult->getData();
+            if (voter->getHasVoted() == true) {
+              //voter already voted
+            }
+            //use this voter from the bst search result to get the heap index and change support
         }
         if (words.at(0) == "show-impact") {
             vec->showImpact();
         }
         if (words.at(0) == "reduce-likelihood") {
             //reduce-likelihood stuff
+            Node* searchResult = bst.search(words.at(1), words.at(2));
+            if (searchResult == NULL) {
+              //voter not found
+              continue;
+            }
+            Voter* voter = searchResult->getData();
+            if (voter->getHasVoted() == true) {
+              //voter already voted
+            }
+            //use this voter from the bst to get the heap index and reduce likelihood
         }
         if (words.at(0) == "chauffeur") {
-            //get voter at root, and remove it from BST and Heap, and set hasVoted to true
+            //get voter at root, and remove it from Heap, and set hasVoted to true
             //set hasVoted to true
         }
     }
