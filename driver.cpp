@@ -31,7 +31,6 @@ int main() {
     while (true) {
         getline(cin, input);
         vector<string> words = splitBySpace(input);
-        cout << "hello: " << words.at(0) << endl;
         
         if (words.at(0) == "quit") {
             break;
@@ -57,10 +56,11 @@ int main() {
                 Node* newNode = new Node(newVoter);
                 newVoter->setBstPtr(newNode);
                 bst.insert(newNode);
-                bst.traversePreOrder(bst.getRoot());
                 //insert into Heap
                 hep.insert(newVoter);
                 //set pointer and indices for the data structures
+                cout << "New voter " << newVoter->getFirstName() << " " << newVoter->getLastName()
+                    << ", age " << newVoter->getAge() << " added" << endl;
             }
         }
         if (words.at(0) == "voted") {
@@ -72,9 +72,11 @@ int main() {
             }
             Voter* voter = searchResult->getData();
             if (voter->getHasVoted() == true) {
-              cout << "Voter " << voter->getFirstName() << " " << voter->getLastName() << " already voted" << endl;
+              cout << voter->getFirstName() << " " << voter->getLastName() << " already voted" << endl;
               continue;
             }
+            cout << "Voter " << voter->getFirstName() << " " << voter->getLastName() << ", age " 
+                << voter->getAge() << " voted" << endl;
             //set hasVoted to true
             voter->setHasVoted();
             //remove from heap using voter's heap index

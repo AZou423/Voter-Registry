@@ -70,7 +70,6 @@ Node* BST::search(string firstName, string lastName) {
   Node* current = root;
   while (current != NULL) {
     string currentFullName = current->getData()->getFirstName() + current->getData()->getLastName();
-    cout << "target: " << targetFullName << " current: " << currentFullName << endl;
     if (targetFullName == currentFullName) {
       return current;
     }
