@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string>
 #include <sstream>
+#include <vector>
 #include "BST.h"
 #include "Heap.h"
 #include "Vector.h"
@@ -24,6 +25,8 @@ int main() {
     string input;
     Vector* vec = new Vector();
     BST bst;
+    vector<Voter*> in;
+    Heap hep(in);
     //Heap constructor
     while (true) {
         getline(cin, input);
@@ -56,6 +59,7 @@ int main() {
                 bst.insert(newNode);
                 bst.traversePreOrder(bst.getRoot());
                 //insert into Heap
+                hep.insert(newVoter);
                 //set pointer and indices for the data structures
             }
         }
