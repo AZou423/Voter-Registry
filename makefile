@@ -1,10 +1,9 @@
 COURSE = cs310
 SEMESTER = fall2024
-CP_NUMBER = 2
+CP_NUMBER = 4
 LASTNAME = Choi
 GITUSERID = cchoi11
-EXE = register 
-EXE2 = driver 
+EXE = lets_vote
 
 REPODIR = ../$(COURSE)-$(SEMESTER)-cp$(CP_NUMBER)-$(GITUSERID)
 TARFILE = ../CP$(CP_NUMBER)_$(LASTNAME)_$(USER)_$(GITUSERID).tar
@@ -15,7 +14,7 @@ CC = g++
 BIN = bin
 OBJ = obj
 
-all: $(BIN)/$(EXE) $(BIN)/$(EXE2)
+all: $(BIN)/$(EXE)
 
 $(BIN)/$(EXE): $(OBJ)/Node.o $(OBJ)/Vector.o $(OBJ)/BST.o $(OBJ)/Heap.o $(OBJ)/Voter.o $(OBJ)/driver.o
 	$(CC) $(FLAGS) $(OBJ)/Node.o $(OBJ)/Vector.o $(OBJ)/BST.o $(OBJ)/Heap.o $(OBJ)/Voter.o \
@@ -25,16 +24,16 @@ $(BIN)/$(EXE): $(OBJ)/Node.o $(OBJ)/Vector.o $(OBJ)/BST.o $(OBJ)/Heap.o $(OBJ)/V
 $(OBJ)/Voter.o: Voter.cpp Voter.h
 	$(CC) $(FLAGS) -c Voter.cpp -o $@
 
-$(OBJ)/Node.o: Node.cpp Node.h
+$(OBJ)/Node.o: Node.cpp Node.h Voter.h
 	$(CC) $(FLAGS) -c Node.cpp -o $@
 
-$(OBJ)/Heap.o: Heap.cpp Heap.h
+$(OBJ)/Heap.o: Heap.cpp Heap.h Voter.h
 	$(CC) $(FLAGS) -c Heap.cpp -o $@
 
-$(OBJ)/BST.o: BST.cpp BST.h
+$(OBJ)/BST.o: BST.cpp BST.h Node.h
 	$(CC) $(FLAGS) -c BST.cpp -o $@
 
-$(OBJ)/Vector.o: Vector.cpp Vector.h
+$(OBJ)/Vector.o: Vector.cpp Vector.h Voter.h
 	$(CC) $(FLAGS) -c Vector.cpp -o $@
 
 $(OBJ)/driver.o: driver.cpp Vector.h BST.h Heap.h Node.h Voter.h
@@ -47,4 +46,4 @@ tar:	clean
 	@echo $(TARFILE)".gz"
 
 clean:
-	rm -f $(OBJ)/*.o $(BIN)/$(EXE) $(BIN)/$(EXE2) *.tar.gz
+	rm -f $(OBJ)/*.o $(BIN)/$(EXE) *.tar.gz
