@@ -10,7 +10,7 @@ using namespace std;
 
 class Vector{
     private:
-        std::vector<std::list<Voter>> listOfLists; //vector of lists
+        vector<list<Voter*>> listOfLists; //vector of lists
 
     public:
         Vector(); //default constructor
