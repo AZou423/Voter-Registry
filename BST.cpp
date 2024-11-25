@@ -3,6 +3,7 @@
 #include <string>
 #include "Node.h"
 #include "Voter.h"
+#include "BST.h"
 using namespace std;
 
 BST::BST() {
@@ -23,9 +24,9 @@ void BST::insert(Node* newNode) {
     return;
   }
   Node* current = root;
-  string insertFullName = newNode->getData()->getFirst() + newNode->getData()->getLast();
+  string insertFullName = newNode->getData()->getFirstName() + newNode->getData()->getLastName();
   while (current != NULL) {
-    string currentFullName = current->getData()->getFirst() + current->getData()->getLast();
+    string currentFullName = current->getData()->getFirstName() + current->getData()->getLastName();
     if (currentFullName < insertFullName) { //compare names
       if (current->getRight() == NULL) {
         current->setRight(newNode);
@@ -68,7 +69,7 @@ Node* BST::search(string firstName, string lastName) {
   string targetFullName = firstName + lastName;
   Node* current = root;
   while (current != NULL) {
-    string currentFullName = current->getData()->getFirst() + current->getData()->getLast();
+    string currentFullName = current->getData()->getFirstName() + current->getData()->getLastName();
     if (targetFullName == currentFullName) {
       return current;
     }
@@ -86,10 +87,10 @@ Node* BST::search(string firstName, string lastName) {
 void BST::remove(Voter voter) {
   Node* targetParent = NULL;
   Node* target = root;
-  string removeFullName = voter.getFirst() + voter.getLast();
-  while (target != NULL && (target->getData()->getFirst() != voter.getFirst() || target->getData()->getLast() != voter.getLast())) {
+  string removeFullName = voter.getFirstName() + voter.getLastName();
+  while (target != NULL && (target->getData()->getFirstName() != voter.getFirstName() || target->getData()->getLastName() != voter.getLastName())) {
     targetParent = target;
-    if (removeFullName < (target->getData()->getFirst() + target->getData()->getLast())) {
+    if (removeFullName < (target->getData()->getFirstName() + target->getData()->getLastName())) {
       target = target->getLeft();
     }
     else {
