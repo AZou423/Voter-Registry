@@ -24,7 +24,8 @@ void Vector::showImpact() {
     for (std::list<Voter>& element : listOfLists) {
         for (Voter person : element) {
             if (!(person.getHasVoted())) {
-                cout << person.getName() << "(" << person.getAge() << "): strength of support: " 
+                cout << person.getFirstName() << " " << person.getLastName() << "(" 
+                    << person.getAge() << "): strength of support: " 
                     << person.getSupport() <<", likelihood: " << person.getLikelihood()
                     << ", impact: " << person.getImpact() << endl;
             }
