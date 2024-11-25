@@ -25,4 +25,4 @@ class Vector{
         void showImpact();
 };
 
-#endif _Vector_
+#endif
