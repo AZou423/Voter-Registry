@@ -17,28 +17,27 @@ OBJ = obj
 
 all: $(BIN)/$(EXE) $(BIN)/$(EXE2)
 
-$(BIN)/$(EXE): $(OBJ)/RegisteredVotersVector.o $(OBJ)/RegisteredVotersABL.o $(OBJ)/Voter.o $(OBJ)/register.o
-	$(CC) $(FLAGS) $(OBJ)/RegisteredVotersVector.o $(OBJ)/RegisteredVotersABL.o $(OBJ)/Voter.o \
-		$(OBJ)/register.o -o $@
-
-$(BIN)/$(EXE2): $(OBJ)/RegisteredVotersVector.o $(OBJ)/RegisteredVotersABL.o $(OBJ)/Voter.o $(OBJ)/driver.o
-	$(CC) $(FLAGS) $(OBJ)/RegisteredVotersVector.o $(OBJ)/RegisteredVotersABL.o $(OBJ)/Voter.o \
+$(BIN)/$(EXE): $(OBJ)/Node.o $(OBJ)/Vector.o $(OBJ)/BST.o $(OBJ)/Heap.o $(OBJ)/Voter.o $(OBJ)/driver.o
+	$(CC) $(FLAGS) $(OBJ)/Node.o $(OBJ)/Vector.o $(OBJ)/BST.o $(OBJ)/Heap.o $(OBJ)/Voter.o \
 		$(OBJ)/driver.o -o $@
 
 # Specify how the object files should be created from source files
 $(OBJ)/Voter.o: Voter.cpp Voter.h
 	$(CC) $(FLAGS) -c Voter.cpp -o $@
 
-$(OBJ)/RegisteredVotersVector.o: RegisteredVotersVector.cpp RegisteredVotersVector.h RegisteredVotersBase.h Voter.h
-	$(CC) $(FLAGS) -c RegisteredVotersVector.cpp -o $@
+$(OBJ)/Node.o: Node.cpp Node.h
+	$(CC) $(FLAGS) -c Node.cpp -o $@
 
-$(OBJ)/RegisteredVotersABL.o: RegisteredVotersABL.cpp RegisteredVotersABL.h RegisteredVotersBase.h Voter.h
-	$(CC) $(FLAGS) -c RegisteredVotersABL.cpp -o $@
+$(OBJ)/Heap.o: Heap.cpp Heap.h
+	$(CC) $(FLAGS) -c Heap.cpp -o $@
 
-$(OBJ)/register.o: register.cpp RegisteredVotersBase.h RegisteredVotersVector.h Voter.h
-	$(CC) $(FLAGS) -c register.cpp -o $@
+$(OBJ)/BST.o: BST.cpp BST.h
+	$(CC) $(FLAGS) -c BST.cpp -o $@
 
-$(OBJ)/driver.o: driver.cpp RegisteredVotersBase.h RegisteredVotersVector.h Voter.h
+$(OBJ)/Vector.o: Vector.cpp Vector.h
+	$(CC) $(FLAGS) -c Vector.cpp -o $@
+
+$(OBJ)/driver.o: driver.cpp Vector.h BST.h Heap.h Node.h Voter.h
 	$(CC) $(FLAGS) -c driver.cpp -o $@
 
 tar:	clean
