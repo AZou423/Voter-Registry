@@ -46,7 +46,7 @@ int main() {
             }
             vec->insertVoter(newVoter);
             //insert into BST
-            Node* newNode = new Node(&newVoter);
+            Node* newNode = new Node(newVoter);
             newVoter->setBstPtr(newNode);
             bst.insert(newNode)
             //insert into Heap
