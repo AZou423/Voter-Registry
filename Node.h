@@ -10,10 +10,10 @@ class Node{
     private:
         Node* left;
         Node* right;
-        Voter voter;
+        Voter* voter;
 
     public:
-        Node(const Voter& v);
+        Node(Voter* voterPtr);
         ~Node();
         void setLeft(Node* left);
         void setRight(Node* right);

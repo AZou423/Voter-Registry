@@ -4,8 +4,8 @@
 #include <string>
 using namespace std;
 
-Node::Node(const Voter& v){
-    voter = v;
+Node::Node(Voter* voterPtr){
+    voter = voterPtr;
     left = nullptr;
     right = nullptr;
 }
