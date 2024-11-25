@@ -25,9 +25,10 @@ int main() {
     Vector* vec = new Vector();
     BST bst;
     //Heap constructor
-    while (cin >> input) {
+    while (true) {
         getline(cin, input);
         vector<string> words = splitBySpace(input);
+        cout << "hello: " << words.at(0) << endl;
         
         if (words.at(0) == "quit") {
             break;
@@ -44,13 +45,19 @@ int main() {
               cout << "Voter " << firstname << " " << lastname << ", age " << age << ", already exists." << endl;
               continue;
             }
-            vec->insertVoter(newVoter);
-            //insert into BST
-            Node* newNode = new Node(newVoter);
-            newVoter->setBstPtr(newNode);
-            bst.insert(newNode);
-            //insert into Heap
-            //set pointer and indices for the data structures
+            if ((newVoter->getAge() < 18) || (newVoter->getAge() > 118)) {
+                cout << "Voter age should be between 18 and 118" << endl;
+            }
+            else {   
+                vec->insertVoter(newVoter);
+                //insert into BST
+                Node* newNode = new Node(newVoter);
+                newVoter->setBstPtr(newNode);
+                bst.insert(newNode);
+                bst.traversePreOrder(bst.getRoot());
+                //insert into Heap
+                //set pointer and indices for the data structures
+            }
         }
         if (words.at(0) == "voted") {
             //traverse through BST to find the name and then remove it from BST and Heap
