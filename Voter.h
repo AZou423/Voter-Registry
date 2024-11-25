@@ -12,7 +12,7 @@ class Voter {
       string first;
       string last;
       unsigned int age;
-      Node* heapPtr;
+      int heapIndex;
       Node* bstPtr;
       int vectorIndex;
       float support;
@@ -28,7 +28,7 @@ class Voter {
       bool operator>(const Voter& v2) const;
       bool operator<(const Voter& v2) const;
       bool operator==(const Voter& v2) const;
-      Node* getHeapPtr();
+      int getHeapIndex();
       Node* getBstPtr();
       int getVectorIndex();
       string getName(); //added this so we can access full name (needs to be first and last) of Voter node for BST insert and find
@@ -39,7 +39,7 @@ class Voter {
       float getLikelihood();
       float getImpact();
       bool getHasVoted();
-      void setHeapPtr(Node* newHeapPtr);
+      void setHeapIndex(int newIndex);
       void setBstPtr(Node* newBstPtr);
       void setVectorIndex(int newVectorIndex);
       void setSupport(float newSupport);

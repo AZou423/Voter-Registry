@@ -4,26 +4,26 @@ Voter::Voter(string firstname, string lastname, unsigned int voterage) {
 	first = firstname;
 	last = lastname;
 	age = voterage;
-  heapPtr = NULL;
-  bstPtr = NULL;
-  vectorIndex = age - 18;
-  support = 75;
-  likelihood = .75;
-  impact = 100;
-  hasVoted = false;
+    heapIndex = 0;
+    bstPtr = NULL;
+    vectorIndex = age - 18;
+    support = 75;
+    likelihood = .75;
+    impact = 100;
+    hasVoted = false;
 }
 
 Voter::Voter() {
-	first = "";
+    first = "";
 	last = "";
 	age = 0;
-  heapPtr = NULL;
-  bstPtr = NULL;
-  vectorIndex = age - 18;
-  support = 0.0;
-  likelihood = 0.0;
-  impact = 0.0;
-  hasVoted = false;
+    heapIndex = 0;
+    bstPtr = NULL;
+    vectorIndex = age - 18;
+    support = 0.0;
+    likelihood = 0.0;
+    impact = 0.0;
+    hasVoted = false;
 }
 
 void Voter::show() {
@@ -81,8 +81,8 @@ bool Voter::operator<(const Voter& v2) const {
   return true;
 }
 
-Node* Voter::getHeapPtr() {
-  return heapPtr;
+int Voter::getHeapIndex() {
+  return heapIndex;
 }
 
 Node* Voter::getBstPtr() {
@@ -121,8 +121,16 @@ string Voter::getLastName() {
   return last;
 }
 
-void Voter::setHeapPtr(Node* newHeapPtr) {
-  heapPtr = newHeapPtr;
+string Voter::getFirstName() {
+  return first;
+}
+
+string Voter::getLastName() {
+  return last;
+}
+
+void Voter::setHeapIndex(int newHeapIndex) {
+  heapIndex = newHeapIndex;
 }
 
 void Voter::setBstPtr(Node* newBstPtr) {
