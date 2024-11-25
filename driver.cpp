@@ -48,7 +48,7 @@ int main() {
             //insert into BST
             Node* newNode = new Node(newVoter);
             newVoter->setBstPtr(newNode);
-            bst.insert(newNode)
+            bst.insert(newNode);
             //insert into Heap
             //set pointer and indices for the data structures
         }
