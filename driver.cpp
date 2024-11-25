@@ -36,7 +36,7 @@ int main() {
         if (words.at(0) == "voter") {
             Voter* newVoter = new Voter(words.at(2), words.at(1), stoi(words.at(3)));
             //check if voter already exists
-            Node* searchResult = bst.search(words.at(1), words.at(2));
+            Node* searchResult = bst.search(words.at(2), words.at(1));
             if (searchResult != NULL) {
               //voter already exists
               string firstname = searchResult->getData()->getFirstName();
@@ -61,7 +61,7 @@ int main() {
         }
         if (words.at(0) == "voted") {
             //traverse through BST to find the name and then remove it from BST and Heap
-            Node* searchResult = bst.search(words.at(1), words.at(2));
+            Node* searchResult = bst.search(words.at(2), words.at(1));
             if (searchResult == NULL) {
               //voter not found
               continue;
@@ -73,7 +73,7 @@ int main() {
         }
         if (words.at(0) == "support") {
             //support stuff
-            Node* searchResult = bst.search(words.at(1), words.at(2));
+            Node* searchResult = bst.search(words.at(2), words.at(1));
             if (searchResult == NULL) {
               //voter not found
               continue;
@@ -89,7 +89,7 @@ int main() {
         }
         if (words.at(0) == "reduce-likelihood") {
             //reduce-likelihood stuff
-            Node* searchResult = bst.search(words.at(1), words.at(2));
+            Node* searchResult = bst.search(words.at(2), words.at(1));
             if (searchResult == NULL) {
               //voter not found
               continue;
