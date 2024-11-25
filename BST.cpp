@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
-#include "Node.h"
+#include "BST.h"
 #include "Voter.h"
 using namespace std;
 
