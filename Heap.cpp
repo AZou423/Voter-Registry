@@ -11,10 +11,10 @@ void Heap::percolateDown(int nodeIndex, vector<Voter*> vec){
     int rightChildIndex = (nodeIndex * 2) + 2;
     int largest = nodeIndex;
 
-    if(leftChildIndex < vec.size() && vec.at(largest)->getImpact() < vec.at(leftChildIndex)->getImpact()){
+    if(leftChildIndex < static_cast<int>(vec.size()) && vec.at(largest)->getImpact() < vec.at(leftChildIndex)->getImpact()){
         largest = leftChildIndex;
     }
-    if(rightChildIndex < vec.size() && vec.at(largest)->getImpact() < vec.at(rightChildIndex)->getImpact()){
+    if(rightChildIndex < static_cast<int>(vec.size()) && vec.at(largest)->getImpact() < vec.at(rightChildIndex)->getImpact()){
         largest = rightChildIndex;
     }
     if(largest != nodeIndex){
@@ -49,7 +49,7 @@ void Heap::heapify(vector<Voter*> vec){
 Voter* Heap::extractMax(){
     if(voterVector.empty()){
         cout << "Empty heap" << endl;
-        return;
+        return NULL;
     }
 
     Voter* max = voterVector.at(0); //save the Voter with greatest impact

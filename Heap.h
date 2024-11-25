@@ -17,4 +17,4 @@ class Heap{
         void insert(Voter* v); //has to handle resizing vector
 };
 
-#endif HEAP_H
+#endif
