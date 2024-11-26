@@ -121,6 +121,22 @@ int main() {
         }
         if (words.at(0) == "chauffeur") {
             //get voter at root, and remove it from Heap, and set hasVoted to true
+            Voter* max = NULL;
+            while (true) {
+              max = hep.extractMax();
+              if (!max->getHasVoted() || max == NULL) {
+                break;
+              }
+            }
+            if (max == NULL) {
+              continue;
+            }
+            else {
+              max->setHasVoted();
+              cout << "Driving " << max->getFirstName() << " " << max->getLastName() << "("
+                  << max->getAge() << "): strength of support: " << max->getSupport() 
+                  << ", likelihood: " << max->getLikelihood() << ", impact: " << max->getImpact() << endl;
+            }
             //set hasVoted to true
         }
     }
