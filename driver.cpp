@@ -44,7 +44,7 @@ int main() {
               string firstname = searchResult->getData()->getFirstName();
               string lastname = searchResult->getData()->getLastName();
               int age = searchResult->getData()->getAge();
-              cout << "Voter " << firstname << " " << lastname << ", age " << age << ", already exists." << endl;
+              cout << "Voter " << firstname << " " << lastname << ", age " << age << ", already exists" << endl;
               continue;
             }
             if ((newVoter->getAge() < 18) || (newVoter->getAge() > 118)) {
@@ -60,7 +60,7 @@ int main() {
                 hep.insert(newVoter);
                 //set pointer and indices for the data structures
                 cout << "New voter " << newVoter->getFirstName() << " " << newVoter->getLastName()
-                    << ", age " << newVoter->getAge() << " added" << endl;
+                    << ", age " << newVoter->getAge() << ", added" << endl;
             }
         }
         if (words.at(0) == "voted") {
@@ -76,7 +76,7 @@ int main() {
               continue;
             }
             cout << "Voter " << voter->getFirstName() << " " << voter->getLastName() << ", age " 
-                << voter->getAge() << " voted" << endl;
+                << voter->getAge() << ", voted" << endl;
             //set hasVoted to true
             voter->setHasVoted();
             //remove from heap using voter's heap index
@@ -93,17 +93,17 @@ int main() {
             if (voter->getHasVoted() == true) {
               cout << voter->getFirstName() << " " << voter->getLastName() << " already voted" << endl;
             }
-            cout << voter->getSupport() << endl; //before changing support
-            cout << hep.getVec().at(0) << endl; // heap before changing
+            // cout << voter->getSupport() << endl; //before changing support
+            // cout << hep.getVec().at(0) << endl; // heap before changing
             voter->setSupport(stof(words.at(3)) + voter->getSupport());
-            cout << voter->getSupport() << endl; //after changing support
+            // cout << voter->getSupport() << endl; //after changing support
             voter->calculateImpact();
-            cout << "New impact: " << voter->getImpact() << endl;
-            cout << "Voter index in heap: " << voter->getHeapIndex() << endl;
+            // cout << "New impact: " << voter->getImpact() << endl;
+            // cout << "Voter index in heap: " << voter->getHeapIndex() << endl;
             hep.percolateUp(voter->getHeapIndex());
-            cout << hep.getVec().at(0) << endl; // heap after changing
+            // cout << hep.getVec().at(0) << endl; // heap after changing
             cout << "Support from " << voter->getFirstName() << " " << voter->getLastName() 
-                << " increased by " << stof(words.at(3)) << " points" << endl;
+                << " increased by " << stof(words.at(3)) << " strength points" << endl;
         }
         if (words.at(0) == "show-impact") {
             vec->showImpact();

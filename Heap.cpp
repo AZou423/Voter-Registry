@@ -32,10 +32,10 @@ void Heap::percolateDown(int nodeIndex){
 void Heap::percolateUp(int nodeIndex) {
     while (nodeIndex > 0) {  
         int parent = (int)(nodeIndex - 1) / 2;
-        cout << "Percolate time" << endl;
+        // cout << "Percolate time" << endl;
         if (voterVector.at(parent)->getImpact() < voterVector.at(nodeIndex)->getImpact()) {
             swap(voterVector.at(parent), voterVector.at(nodeIndex));
-            cout << "Swap made between " << voterVector.at(parent)->getLastName()<< " and " << voterVector.at(nodeIndex)->getLastName() << endl;
+            // cout << "Swap made between " << voterVector.at(parent)->getLastName()<< " and " << voterVector.at(nodeIndex)->getLastName() << endl;
             voterVector.at(parent)->setHeapIndex(parent);
             voterVector.at(nodeIndex)->setHeapIndex(nodeIndex);
             nodeIndex = parent;  // Continue to percolate up from the new position
