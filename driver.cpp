@@ -86,6 +86,7 @@ int main() {
             Node* searchResult = bst.search(words.at(2), words.at(1));
             if (searchResult == NULL) {
               //voter not found
+              cout << "Voter not found" << endl;
               continue;
             }
             Voter* voter = searchResult->getData();
