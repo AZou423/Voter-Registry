@@ -3,50 +3,52 @@
 
 Heap::Heap(const vector<Voter*>& vec){
     voterVector = vec;
-    heapify(voterVector);
+    heapify();
 }
 
 vector<Voter*> Heap::getVec() {
     return voterVector;
 }
 
-void Heap::percolateDown(int nodeIndex, vector<Voter*> vec){
+void Heap::percolateDown(int nodeIndex){
     int leftChildIndex = (nodeIndex * 2) + 1;
     int rightChildIndex = (nodeIndex * 2) + 2;
     int largest = nodeIndex;
 
-    if(leftChildIndex < static_cast<int>(vec.size()) && vec.at(largest)->getImpact() < vec.at(leftChildIndex)->getImpact()){
+    if(leftChildIndex < static_cast<int>(voterVector.size()) && voterVector.at(largest)->getImpact() < voterVector.at(leftChildIndex)->getImpact()){
         largest = leftChildIndex;
     }
-    if(rightChildIndex < static_cast<int>(vec.size()) && vec.at(largest)->getImpact() < vec.at(rightChildIndex)->getImpact()){
+    if(rightChildIndex < static_cast<int>(voterVector.size()) && voterVector.at(largest)->getImpact() < voterVector.at(rightChildIndex)->getImpact()){
         largest = rightChildIndex;
     }
     if(largest != nodeIndex){
-        swap(largest, nodeIndex);
+        swap(voterVector.at(largest), voterVector.at(nodeIndex));
         voterVector.at(largest)->setHeapIndex(largest); //this line and next ensures maintenence of heapIndex of individual Voter
         voterVector.at(nodeIndex)->setHeapIndex(nodeIndex);
-        percolateDown(largest, vec);
+        percolateDown(largest);
     }
 }
 
-void Heap::percolateUp(int nodeIndex, vector<Voter*> vec){
-    int parent = (nodeIndex - 1) / 2;
-    int largest = parent;
-
-    if(parent >= 0 && vec.at(parent)->getImpact() < vec.at(nodeIndex)->getImpact()){
-        largest = nodeIndex;
-    }
-    if(largest != parent){
-        swap(largest, nodeIndex);
-        voterVector.at(largest)->setHeapIndex(largest); //this line and next ensures maintenence of heapIndex of individual Voter
-        voterVector.at(nodeIndex)->setHeapIndex(nodeIndex);
-        percolateUp(largest, vec);
+void Heap::percolateUp(int nodeIndex) {
+    while (nodeIndex > 0) {  
+        int parent = (int)(nodeIndex - 1) / 2;
+        cout << "Percolate time" << endl;
+        if (voterVector.at(parent)->getImpact() < voterVector.at(nodeIndex)->getImpact()) {
+            swap(voterVector.at(parent), voterVector.at(nodeIndex));
+            cout << "Swap made between " << voterVector.at(parent)->getLastName()<< " and " << voterVector.at(nodeIndex)->getLastName() << endl;
+            voterVector.at(parent)->setHeapIndex(parent);
+            voterVector.at(nodeIndex)->setHeapIndex(nodeIndex);
+            nodeIndex = parent;  // Continue to percolate up from the new position
+        } else {
+            break;  // Stop percolating if the current node's impact is less than parent's
+        }
     }
 }
 
-void Heap::heapify(vector<Voter*> vec){
-    for (int i = (vec.size() / 2) - 1; i >= 0; i--) {
-        percolateDown(i, vec);
+
+void Heap::heapify(){
+    for (int i = (voterVector.size() / 2) - 1; i >= 0; i--) {
+        percolateDown(i);
     }
 }
 
@@ -61,7 +63,7 @@ Voter* Heap::extractMax(){
     voterVector.pop_back();
 
     if(!voterVector.empty()){
-        percolateDown(0, voterVector);
+        percolateDown(0);
     }
     
     return max;
@@ -69,7 +71,7 @@ Voter* Heap::extractMax(){
 
 void Heap::insert(Voter* v){
     voterVector.push_back(v);
-    voterVector.at(0)->setHeapIndex(0);
-    percolateUp(voterVector.size() - 1, voterVector);
+    voterVector.back()->setHeapIndex(voterVector.size()-1);
+    percolateUp(voterVector.size() - 1);
 }
 

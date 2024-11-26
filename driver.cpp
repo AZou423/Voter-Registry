@@ -98,7 +98,9 @@ int main() {
             voter->setSupport(stof(words.at(3)) + voter->getSupport());
             cout << voter->getSupport() << endl; //after changing support
             voter->calculateImpact();
-            hep.percolateUp(voter->getHeapIndex(), hep.getVec());
+            cout << "New impact: " << voter->getImpact() << endl;
+            cout << "Voter index in heap: " << voter->getHeapIndex() << endl;
+            hep.percolateUp(voter->getHeapIndex());
             cout << hep.getVec().at(0) << endl; // heap after changing
             cout << "Support from " << voter->getFirstName() << " " << voter->getLastName() 
                 << " increased by " << stof(words.at(3)) << " points" << endl;
@@ -121,22 +123,35 @@ int main() {
         }
         if (words.at(0) == "chauffeur") {
             //get voter at root, and remove it from Heap, and set hasVoted to true
-            Voter* max = NULL;
-            while (true) {
-              max = hep.extractMax();
-              if (!max->getHasVoted() || max == NULL) {
-                break;
-              }
+            Voter* max = hep.extractMax();
+            if(max->getHasVoted() == true){
+                max = hep.extractMax();
             }
-            if (max == NULL) {
-              continue;
+            else if(max == NULL){
+                cout << "No more people to drive" << endl;
             }
-            else {
-              max->setHasVoted();
-              cout << "Driving " << max->getFirstName() << " " << max->getLastName() << "("
-                  << max->getAge() << "): strength of support: " << max->getSupport() 
-                  << ", likelihood: " << max->getLikelihood() << ", impact: " << max->getImpact() << endl;
+            else{
+                max->setHasVoted();
+                cout << "Driving " << max->getFirstName() << " " << max->getLastName() << "("
+                   << max->getAge() << "): strength of support: " << max->getSupport() 
+                   << ", likelihood: " << max->getLikelihood() << ", impact: " << max->getImpact() << endl;
             }
+
+            // while (true) {
+            //   max = hep.extractMax();
+            //   if (!max->getHasVoted() || max == NULL) {
+            //     break;
+            //   }
+            // }
+            // if (max == NULL) {
+            //   continue;
+            // }
+            // else {
+            //   max->setHasVoted();
+            //   cout << "Driving " << max->getFirstName() << " " << max->getLastName() << "("
+            //       << max->getAge() << "): strength of support: " << max->getSupport() 
+            //       << ", likelihood: " << max->getLikelihood() << ", impact: " << max->getImpact() << endl;
+            // }
             //set hasVoted to true
         }
     }
