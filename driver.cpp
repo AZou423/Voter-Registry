@@ -113,12 +113,18 @@ int main() {
             Node* searchResult = bst.search(words.at(2), words.at(1));
             if (searchResult == NULL) {
               //voter not found
+              cout << "Voter not found" << endl;
               continue;
             }
             Voter* voter = searchResult->getData();
             if (voter->getHasVoted() == true) {
               cout << voter->getFirstName() << " " << voter->getLastName() << " already voted" << endl;
+              continue;
             }
+            voter->setLikelihood(voter->getLikelihood() * 0.01 * (100.0 - stof(words.at(3)) ));
+            voter->calculateImpact();
+            hep.percolateDown(voter->getHeapIndex());
+            cout << "Voting likelihood of " << voter->getFirstName() << " " << voter->getLastName() << " decreased by " << stof(words.at(3)) << "%" << endl;
             //use this voter from the bst to get the heap index and reduce likelihood
         }
         if (words.at(0) == "chauffeur") {

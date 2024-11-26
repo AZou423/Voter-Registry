@@ -8,8 +8,8 @@ Voter::Voter(string firstname, string lastname, unsigned int voterage) {
     bstPtr = NULL;
     vectorIndex = age - 18;
     support = 75;
-    likelihood = .75;
-    impact = 100;
+    likelihood = 75.0;
+    impact = 1.0;
     hasVoted = false;
 }
 
