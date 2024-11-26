@@ -123,7 +123,7 @@ int main() {
             }
             voter->setLikelihood(voter->getLikelihood() * 0.01 * (100.0 - stof(words.at(3)) ));
             voter->calculateImpact();
-            hep.percolateDown(voter->getHeapIndex());
+            hep.percolateUp(voter->getHeapIndex());
             cout << "Voting likelihood of " << voter->getFirstName() << " " << voter->getLastName() << " decreased by " << stof(words.at(3)) << "%" << endl;
             //use this voter from the bst to get the heap index and reduce likelihood
         }
