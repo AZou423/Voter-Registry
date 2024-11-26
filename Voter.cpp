@@ -1,4 +1,6 @@
+#include <cmath>
 #include "Voter.h"
+using namespace std;
 
 Voter::Voter(string firstname, string lastname, unsigned int voterage) {
 	first = firstname;
@@ -142,7 +144,7 @@ void Voter::setLikelihood(float newLikelihood) {
 }
 
 void Voter::calculateImpact() {
-  impact = support / likelihood;
+  impact = round((support / likelihood) * 100) / 100;
 }
 
 void Voter::setHasVoted() {
